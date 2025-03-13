@@ -1,0 +1,54 @@
+<odoo>
+    <!-- Tree/list View -->
+    <record id="view_my_hospital_tree" model="ir.ui.view">
+        <field name="name">my.hospital.tree</field>
+        <field name="model">my.hospital</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="print_report" type="object" string="Print Report list header" class="oe_highlight"/>
+                </header>
+
+                
+                <field name="name"/>
+                <field name="description"/>
+                <field name="city"/>
+                <field name="date"/>
+                <field name="condition"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_my_hospital_form" model="ir.ui.view">
+        <field name="name">my.hospital.form</field>
+        <field name="model">my.hospital</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="city"/>
+                        <field name="date"/>
+                        <field name="condition"/>
+                    </group>
+                </sheet>
+<!--                <footer>-->
+<!--                    <button name="print_report" type="object" string="Print Report list footer" class="oe_highlight"/>-->
+<!--                </footer>-->
+            </form>
+        </field>
+    </record>
+
+    <!-- action -->
+    <record id="my_hospital_action" model="ir.actions.act_window">
+        <field name="name">My Hospital Written One</field>
+        <field name="res_model">my.hospital</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_my_hospital_root" name="Hospital Management"/>
+    <menuitem id="menu_my_hospital" name="Hospitals" parent="menu_my_hospital_root" action="my_hospital_action"/>
+</odoo>
+

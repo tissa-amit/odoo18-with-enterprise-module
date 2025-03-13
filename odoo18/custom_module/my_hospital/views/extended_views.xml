@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="view_partner_form_inherit111" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit111</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="is_handicap"/>
+            </xpath>
+            <xpath expr="//field[@name='is_handicap']" position="after">
+                <field name="is_partner"/>
+            </xpath>
+
+            <!-- stage field -->
+            <xpath expr="//form" position="inside">
+                <field name="stage" widget="statusbar"/>
+            </xpath>
+
+            <!-- Add Button in the Header -->
+            <xpath expr="//form/sheet" position="inside">
+                <header>
+                    <button name="extended_contacts_dummy_button" type="object" string="Update Stage"
+                            class="oe_highlight"/>
+                </header>
+            </xpath>
+
+            <!--            made ready only -->
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='is_handicap']" position="attributes">
+                <attribute name="invisible">is_company</attribute>
+            </xpath>
+
+
+            <!-- renamed mobile to phone 2 -->
+            <xpath expr="//field[@name='mobile']" position="attributes">
+                <attribute name="string">Phone 2</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+
+

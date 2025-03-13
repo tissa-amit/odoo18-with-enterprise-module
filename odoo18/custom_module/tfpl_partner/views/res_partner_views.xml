@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- Inheriting the existing form view of 'res.partner' -->
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='function']" position="before">
+                    <field name="nick_name" required="1"/>
+                    <field name="supplier_type" required="1"/>
+                    <field name="service_type" required="1"/>
+                    <field name="supplier_address" required="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="aadhar_number" required="1"/>
+                    <field name="msme_registration"/>
+                    <field name="tax_verified"/>
+                    <field name="vendor_group"/>
+                </xpath>
+
+
+                <field name="phone" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+                <field name="city" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+                 <field name="email" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+                <field name="l10n_in_pan" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+                <field name="street" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+<!--                <field name="state" position="attributes">-->
+<!--                    <attribute name="required">1</attribute>-->
+<!--                </field>-->
+
+
+
+            </field>
+        </record>
+
+
+    </data>
+
+</odoo>
+
+
+
+
+

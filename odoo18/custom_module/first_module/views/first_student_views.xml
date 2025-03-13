@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_first_student_form" model="ir.ui.view">
+        <field name="name">first.student.form</field>
+        <field name="model">first.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_orders_student" model="ir.actions.act_window">
+        <field name="name">Student Orders</field>
+        <field name="res_model">first.student</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new quotation, the first step of a new sale!
+            </p>
+            <p>
+                Once the quotation is confirmed, it becomes a sales order.
+                <br/>
+                You will be able to create an invoice and collect the payment.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="first_model_menu_sales"
+              name="First Student"
+              action="action_orders_student"/>
+</odoo>
